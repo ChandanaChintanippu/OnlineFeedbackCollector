@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Submit Your Feedback</h2>
+<form action="/submit-feedback" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required><br>
+  <input type="email" name="email" placeholder="Your Email" required><br>
+  <label for="rating">Rating (1-5):</label>
+  <select name="rating" id="rating">
+    {% for i in range(1, 6) %}
+      <option value="{{ i }}">{{ i }}</option>
+    {% endfor %}
+  </select><br>
+  <textarea name="comments" placeholder="Your Comments" rows="4" cols="40"></textarea><br>
+  <button type="submit">Submit Feedback</button>
+</form>
+{% endblock %}
